@@ -8,9 +8,13 @@
     <a href="https://github.com/Irfan-amy/UFuture-Attendance/issues">Report Bug</a>
     .
     <a href="https://github.com/Irfan-amy/UFuture-Attendance/issues">Request Feature</a>
+  .
+    <a href="https://github.com/Irfan-amy/UFuture-Attendance/releases/tag/android-app">Download Link</a>
+  
+
   </p>
 
-![Downloads](https://img.shields.io/github/downloads/Irfan-amy/UFuture-Attendance/total) 
+
 
 ### Donation
 
