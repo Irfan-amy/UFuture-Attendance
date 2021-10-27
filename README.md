@@ -1,6 +1,14 @@
-## U-future Atttendance App
-
-This app makes it much more convenient for users to track or mark their attendance in uFuture
+<br/>
+<p >
+  <h1>U-future Attendance</h3>
+  <p >
+    This app makes it much more convenient for users to track or mark their attendance in uFuture
+  </p>
+  <p>
+    <a href="https://github.com/Irfan-amy/UFuture-Attendance/issues">Report Bug</a>
+    .
+    <a href="https://github.com/Irfan-amy/UFuture-Attendance/issues">Request Feature</a>
+  </p>
 
 ### Donation
 
