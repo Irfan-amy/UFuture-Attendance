@@ -259,250 +259,12 @@ class _CoursePageState extends State<CoursePage> {
 
   Widget _buildCourseDetails() {
     return Container(
-      child: Column(
-        children: [
-          SizedBox(
-            height: 32,
-          ),
-          Row(
-            children: [
-              Flexible(
-                fit: FlexFit.tight,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.07),
-                          spreadRadius: 0,
-                          blurRadius: 5,
-                          offset: Offset(0, 3), // changes position of shadow
-                        ),
-                      ],
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 24, horizontal: 28.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            widget.title,
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                color: Colors.black,
-                                fontSize: 32),
-                          ),
-                          SizedBox(
-                            height: courseAttendance != null
-                                ? (courseAttendance.attendances.isNotEmpty
-                                    ? 20
-                                    : 0)
-                                : 0,
-                          ),
-                          if (courseAttendance != null
-                              ? courseAttendance.attendances.isNotEmpty
-                              : false)
-                            Row(
-                              children: [
-                                Expanded(
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                        color: Color(0xFF65E97B),
-                                        borderRadius:
-                                            BorderRadius.circular(18)),
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          vertical: 12.0),
-                                      child: Column(
-                                        children: [
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.baseline,
-                                            textBaseline:
-                                                TextBaseline.ideographic,
-                                            children: [
-                                              Text(
-                                                (courseAttendance.attendances
-                                                                .map((element) =>
-                                                                    element.status ==
-                                                                            AttendanceStatus
-                                                                                .ATTENDED
-                                                                        ? 1
-                                                                        : 0)
-                                                                .reduce((value,
-                                                                        element) =>
-                                                                    value +
-                                                                    element)
-                                                                .toDouble() *
-                                                            100 /
-                                                            courseAttendance
-                                                                .attendances
-                                                                .map((element) =>
-                                                                    (element.status == AttendanceStatus.ATTENDED || element.status == AttendanceStatus.ABSCENT)
-                                                                        ? 1
-                                                                        : 0)
-                                                                .reduce((value,
-                                                                        element) =>
-                                                                    value +
-                                                                    element)
-                                                                .toDouble())
-                                                        .toStringAsFixed(1) +
-                                                    "%",
-                                                style: TextStyle(
-                                                    fontWeight: FontWeight.w500,
-                                                    color: Colors.white,
-                                                    fontSize: 18),
-                                              ),
-                                              SizedBox(
-                                                width: 2,
-                                              ),
-                                              Text(
-                                                "(" +
-                                                    courseAttendance.attendances
-                                                        .map((element) => element
-                                                                    .status ==
-                                                                AttendanceStatus
-                                                                    .ATTENDED
-                                                            ? 1
-                                                            : 0)
-                                                        .reduce(
-                                                            (value, element) =>
-                                                                value + element)
-                                                        .toString() +
-                                                    ")",
-                                                style: TextStyle(
-                                                    fontWeight: FontWeight.w500,
-                                                    color: Colors.white,
-                                                    fontSize: 12),
-                                              ),
-                                            ],
-                                          ),
-                                          Text(
-                                            "Attended",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w500,
-                                                color: Colors.white,
-                                                fontSize: 12),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 12,
-                                ),
-                                Expanded(
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                        color: Color(0xFFF97474),
-                                        borderRadius:
-                                            BorderRadius.circular(18)),
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          vertical: 12.0),
-                                      child: Column(
-                                        children: [
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.baseline,
-                                            textBaseline:
-                                                TextBaseline.ideographic,
-                                            children: [
-                                              Text(
-                                                (courseAttendance.attendances
-                                                                .map((element) =>
-                                                                    element.status ==
-                                                                            AttendanceStatus
-                                                                                .ABSCENT
-                                                                        ? 1
-                                                                        : 0)
-                                                                .reduce((value,
-                                                                        element) =>
-                                                                    value +
-                                                                    element)
-                                                                .toDouble() *
-                                                            100 /
-                                                            courseAttendance
-                                                                .attendances
-                                                                .map((element) =>
-                                                                    (element.status == AttendanceStatus.ATTENDED || element.status == AttendanceStatus.ABSCENT)
-                                                                        ? 1
-                                                                        : 0)
-                                                                .reduce((value,
-                                                                        element) =>
-                                                                    value +
-                                                                    element)
-                                                                .toDouble())
-                                                        .toStringAsFixed(1) +
-                                                    "%",
-                                                style: TextStyle(
-                                                    fontWeight: FontWeight.w500,
-                                                    color: Colors.white,
-                                                    fontSize: 18),
-                                              ),
-                                              SizedBox(
-                                                width: 2,
-                                              ),
-                                              Text(
-                                                "(" +
-                                                    courseAttendance.attendances
-                                                        .map((element) => element
-                                                                    .status ==
-                                                                AttendanceStatus
-                                                                    .ABSCENT
-                                                            ? 1
-                                                            : 0)
-                                                        .reduce(
-                                                            (value, element) =>
-                                                                value + element)
-                                                        .toString() +
-                                                    ")",
-                                                style: TextStyle(
-                                                    fontWeight: FontWeight.w500,
-                                                    color: Colors.white,
-                                                    fontSize: 12),
-                                              ),
-                                            ],
-                                          ),
-                                          Text(
-                                            "Abscent",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w500,
-                                                color: Colors.white,
-                                                fontSize: 12),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              )
-            ],
-          ),
-          SizedBox(height: 26),
-          if (courseAttendance != null
-              ? courseAttendance.attendances.isNotEmpty
-              : false)
-            _buildListAttandence(courseAttendance.attendances),
-          if (courseAttendance != null
-              ? courseAttendance.attendances.isEmpty
-              : false)
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 32,
+            ),
             Row(
               children: [
                 Flexible(
@@ -524,28 +286,214 @@ class _CoursePageState extends State<CoursePage> {
                       ),
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
-                            vertical: 18.0, horizontal: 24.0),
-                        child: Row(
+                            vertical: 24, horizontal: 28.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Container(
-                              width: 8,
-                              height: 8,
-                              decoration: BoxDecoration(
-                                color: Color(0xFFC4CC7C),
-                                borderRadius: BorderRadius.circular(50),
-                              ),
+                            Text(
+                              widget.title,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.black,
+                                  fontSize: 32),
                             ),
                             SizedBox(
-                              width: 8,
+                              height: courseAttendance != null
+                                  ? (courseAttendance.attendances.isNotEmpty
+                                      ? 20
+                                      : 0)
+                                  : 0,
                             ),
-                            Expanded(
-                              child: Container(
-                                  child: Text(
-                                "There is no class.",
-                                style: TextStyle(
-                                    fontSize: 14, color: Color(0xFF000000)),
-                              )),
-                            ),
+                            if (courseAttendance != null
+                                ? courseAttendance.attendances.isNotEmpty
+                                : false)
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          color: Color(0xFF65E97B),
+                                          borderRadius:
+                                              BorderRadius.circular(18)),
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 12.0),
+                                        child: Column(
+                                          children: [
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.baseline,
+                                              textBaseline:
+                                                  TextBaseline.ideographic,
+                                              children: [
+                                                Text(
+                                                  (courseAttendance.attendances
+                                                                  .map((element) =>
+                                                                      element.status ==
+                                                                              AttendanceStatus
+                                                                                  .ATTENDED
+                                                                          ? 1
+                                                                          : 0)
+                                                                  .reduce((value,
+                                                                          element) =>
+                                                                      value +
+                                                                      element)
+                                                                  .toDouble() *
+                                                              100 /
+                                                              courseAttendance
+                                                                  .attendances
+                                                                  .map((element) =>
+                                                                      (element.status == AttendanceStatus.ATTENDED || element.status == AttendanceStatus.ABSCENT)
+                                                                          ? 1
+                                                                          : 0)
+                                                                  .reduce((value,
+                                                                          element) =>
+                                                                      value +
+                                                                      element)
+                                                                  .toDouble())
+                                                          .toStringAsFixed(1) +
+                                                      "%",
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      color: Colors.white,
+                                                      fontSize: 18),
+                                                ),
+                                                SizedBox(
+                                                  width: 2,
+                                                ),
+                                                Text(
+                                                  "(" +
+                                                      courseAttendance
+                                                          .attendances
+                                                          .map((element) => element
+                                                                      .status ==
+                                                                  AttendanceStatus
+                                                                      .ATTENDED
+                                                              ? 1
+                                                              : 0)
+                                                          .reduce((value,
+                                                                  element) =>
+                                                              value + element)
+                                                          .toString() +
+                                                      ")",
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      color: Colors.white,
+                                                      fontSize: 12),
+                                                ),
+                                              ],
+                                            ),
+                                            Text(
+                                              "Attended",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.w500,
+                                                  color: Colors.white,
+                                                  fontSize: 12),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 12,
+                                  ),
+                                  Expanded(
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          color: Color(0xFFF97474),
+                                          borderRadius:
+                                              BorderRadius.circular(18)),
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 12.0),
+                                        child: Column(
+                                          children: [
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.baseline,
+                                              textBaseline:
+                                                  TextBaseline.ideographic,
+                                              children: [
+                                                Text(
+                                                  (courseAttendance.attendances
+                                                                  .map((element) =>
+                                                                      element.status ==
+                                                                              AttendanceStatus
+                                                                                  .ABSCENT
+                                                                          ? 1
+                                                                          : 0)
+                                                                  .reduce((value,
+                                                                          element) =>
+                                                                      value +
+                                                                      element)
+                                                                  .toDouble() *
+                                                              100 /
+                                                              courseAttendance
+                                                                  .attendances
+                                                                  .map((element) =>
+                                                                      (element.status == AttendanceStatus.ATTENDED || element.status == AttendanceStatus.ABSCENT)
+                                                                          ? 1
+                                                                          : 0)
+                                                                  .reduce((value,
+                                                                          element) =>
+                                                                      value +
+                                                                      element)
+                                                                  .toDouble())
+                                                          .toStringAsFixed(1) +
+                                                      "%",
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      color: Colors.white,
+                                                      fontSize: 18),
+                                                ),
+                                                SizedBox(
+                                                  width: 2,
+                                                ),
+                                                Text(
+                                                  "(" +
+                                                      courseAttendance
+                                                          .attendances
+                                                          .map((element) => element
+                                                                      .status ==
+                                                                  AttendanceStatus
+                                                                      .ABSCENT
+                                                              ? 1
+                                                              : 0)
+                                                          .reduce((value,
+                                                                  element) =>
+                                                              value + element)
+                                                          .toString() +
+                                                      ")",
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      color: Colors.white,
+                                                      fontSize: 12),
+                                                ),
+                                              ],
+                                            ),
+                                            Text(
+                                              "Abscent",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.w500,
+                                                  color: Colors.white,
+                                                  fontSize: 12),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                           ],
                         ),
                       ),
@@ -554,7 +502,68 @@ class _CoursePageState extends State<CoursePage> {
                 )
               ],
             ),
-        ],
+            SizedBox(height: 26),
+            if (courseAttendance != null
+                ? courseAttendance.attendances.isNotEmpty
+                : false)
+              _buildListAttandence(courseAttendance.attendances),
+            if (courseAttendance != null
+                ? courseAttendance.attendances.isEmpty
+                : false)
+              Row(
+                children: [
+                  Flexible(
+                    fit: FlexFit.tight,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.07),
+                              spreadRadius: 0,
+                              blurRadius: 5,
+                              offset:
+                                  Offset(0, 3), // changes position of shadow
+                            ),
+                          ],
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 18.0, horizontal: 24.0),
+                          child: Row(
+                            children: [
+                              Container(
+                                width: 8,
+                                height: 8,
+                                decoration: BoxDecoration(
+                                  color: Color(0xFFC4CC7C),
+                                  borderRadius: BorderRadius.circular(50),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 8,
+                              ),
+                              Expanded(
+                                child: Container(
+                                    child: Text(
+                                  "There is no class.",
+                                  style: TextStyle(
+                                      fontSize: 14, color: Color(0xFF000000)),
+                                )),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+          ],
+        ),
       ),
     );
   }
