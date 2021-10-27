@@ -10,6 +10,8 @@
     <a href="https://github.com/Irfan-amy/UFuture-Attendance/issues">Request Feature</a>
   </p>
 
+![Downloads](https://img.shields.io/github/downloads/Irfan-amy/UFuture-Attendance/total) 
+
 ### Donation
 
 Maybank : 1621 0737 8820 (Muhammad Irfan bin Noraimi)
